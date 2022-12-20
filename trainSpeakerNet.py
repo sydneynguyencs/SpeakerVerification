@@ -145,7 +145,7 @@ def main_worker(gpu, ngpus_per_node, args):
 
     train_sampler = train_dataset_sampler(train_dataset, **vars(args))
 
-    train_loader = torch.utils.data.DataLoader(
+    train_loader = torch.utils.data.DataLoader( # Slow reading
         train_dataset,
         batch_size=args.batch_size,
         num_workers=args.nDataLoaderThread,
